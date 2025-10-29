@@ -3,11 +3,11 @@ from isaaclab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCf
 from isaaclab.assets.articulation import ArticulationCfg
 from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
 
-from robotlib import TRACKERLAB_USD_DIR
+from robotlib import ROBOTLIB_USD_DIR
 
 UNITREE_GO2_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_USD_DIR}/go2/go2.usd",
+        usd_path=f"{ROBOTLIB_USD_DIR}/go2/go2.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,

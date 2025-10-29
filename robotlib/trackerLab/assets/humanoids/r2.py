@@ -3,7 +3,7 @@ from isaaclab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCf
 from isaaclab.assets.articulation import ArticulationCfg
 from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
 
-from robotlib import TRACKERLAB_USD_DIR, TRACKERLAB_ASSETLIB_DIR
+from robotlib import ROBOTLIB_USD_DIR, ROBOTLIB_ASSETLIB_DIR
 
 JOINT_NAMES = [
     "left_hip_pitch_joint",
@@ -143,7 +143,7 @@ EFFORT_REAL={
 
 R2_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_ASSETLIB_DIR}/r2_wholebody/usd/r2_wb.usd",
+        usd_path=f"{ROBOTLIB_ASSETLIB_DIR}/r2_wholebody/usd/r2_wb.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,

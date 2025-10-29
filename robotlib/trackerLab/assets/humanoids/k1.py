@@ -2,11 +2,11 @@ import isaaclab.sim as sim_utils
 from isaaclab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCfg, IdealPDActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
-from robotlib import TRACKERLAB_USD_DIR
+from robotlib import ROBOTLIB_USD_DIR
 
 BOOSTER_K1SERIAL_22DOF_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_USD_DIR}/booster_k1_rev/usd/K1_serial.usd",
+        usd_path=f"{ROBOTLIB_USD_DIR}/booster_k1_rev/usd/K1_serial.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -76,7 +76,7 @@ BOOSTER_K1SERIAL_22DOF_CFG = ArticulationCfg(
 
 BOOSTER_K1SERIAL_22DOF_POSREV_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_USD_DIR}/booster_k1_rev/usd/K1_serial.usd",
+        usd_path=f"{ROBOTLIB_USD_DIR}/booster_k1_rev/usd/K1_serial.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -155,7 +155,7 @@ BOOSTER_K1SERIAL_22DOF_POSREV_CFG = ArticulationCfg(
 
 BOOSTER_K1SERIAL_22DOF_POSREV_V2_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_USD_DIR}/booster_k1_rev/usd/K1_serial.usd",
+        usd_path=f"{ROBOTLIB_USD_DIR}/booster_k1_rev/usd/K1_serial.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -235,7 +235,7 @@ BOOSTER_K1SERIAL_22DOF_POSREV_V2_CFG = ArticulationCfg(
 
 BOOSTER_K1SERIAL_22DOF_POSREV_V3_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_USD_DIR}/booster_k1_rev/usd/K1_serial.usd",
+        usd_path=f"{ROBOTLIB_USD_DIR}/booster_k1_rev/usd/K1_serial.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,

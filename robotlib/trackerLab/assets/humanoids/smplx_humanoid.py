@@ -2,10 +2,10 @@ import isaaclab.sim as sim_utils
 from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets import ArticulationCfg
 
-from robotlib import TRACKERLAB_USD_DIR
+from robotlib import ROBOTLIB_USD_DIR
 SMPLX_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_USD_DIR}/smplx/smplx_humanoid.usda",
+        usd_path=f"{ROBOTLIB_USD_DIR}/smplx/smplx_humanoid.usda",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,

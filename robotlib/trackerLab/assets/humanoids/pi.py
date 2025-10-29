@@ -3,11 +3,11 @@ from isaaclab.actuators import ActuatorNetMLPCfg, DCMotorCfg, ImplicitActuatorCf
 from isaaclab.assets.articulation import ArticulationCfg
 from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
 
-from robotlib import TRACKERLAB_USD_DIR, TRACKERLAB_ASSETS_DIR
+from robotlib import ROBOTLIB_USD_DIR, ROBOTLIB_ASSETS_DIR
 
 PI_PLUS_25DOF_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_USD_DIR}/pi_plus_25dof/pi_plus_25dof.usd",
+        usd_path=f"{ROBOTLIB_USD_DIR}/pi_plus_25dof/pi_plus_25dof.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -43,7 +43,7 @@ PI_PLUS_25DOF_CFG = ArticulationCfg(
 
 PI_PLUS_27DOF_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_USD_DIR}/pi_plus_27dof/pi_plus_27dof.usd",
+        usd_path=f"{ROBOTLIB_USD_DIR}/pi_plus_27dof/pi_plus_27dof.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -80,7 +80,7 @@ PI_PLUS_27DOF_CFG = ArticulationCfg(
 
 PI_PLUS_21DOF_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{TRACKERLAB_USD_DIR}/pi_plus_21dof/pi_plus_21dof.usd",
+        usd_path=f"{ROBOTLIB_USD_DIR}/pi_plus_21dof/pi_plus_21dof.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
