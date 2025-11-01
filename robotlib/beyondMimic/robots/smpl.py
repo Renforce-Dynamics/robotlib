@@ -2,7 +2,7 @@ import isaaclab.sim as sim_utils
 from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 
-from whole_body_tracking.assets import ASSET_DIR
+from robotlib import ROBOTLIB_ASSETS_DIR as ASSET_DIR
 
 ##
 # Configuration
