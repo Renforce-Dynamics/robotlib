@@ -18,36 +18,45 @@ JOINT_NAMES = [
     "right_knee_joint",
     "right_ankle_pitch_joint",
     "right_ankle_roll_joint",
+    "waist_yaw_joint",
+    "waist_pitch_joint",
     "left_shoulder_pitch_joint",
     "left_shoulder_roll_joint",
+    "left_shoulder_yaw_joint",
     "left_arm_pitch_joint",
     "right_shoulder_pitch_joint",
     "right_shoulder_roll_joint",
+    "right_shoulder_yaw_joint",
     "right_arm_pitch_joint", 
 ]
 
 INIT_POS={
     # left leg
-    "left_hip_pitch_joint": 0.0,
+    "left_hip_pitch_joint": -0.1,
     "left_hip_roll_joint": 0.0,
     "left_hip_yaw_joint": 0.0,
-    "left_knee_joint": 0.0,
-    "left_ankle_pitch_joint": 0.0,
+    "left_knee_joint": 0.3,
+    "left_ankle_pitch_joint": -0.2,
     "left_ankle_roll_joint": 0.0,
     # right leg
-    "right_hip_pitch_joint": 0.0,
+    "right_hip_pitch_joint": -0.1,
     "right_hip_roll_joint": 0.0,
     "right_hip_yaw_joint": 0.0,
-    "right_knee_joint": 0.0,
-    "right_ankle_pitch_joint": 0.0,
+    "right_knee_joint": 0.3,
+    "right_ankle_pitch_joint": -0.2,
     "right_ankle_roll_joint": 0.0,
+    # waist
+    "waist_yaw_joint": 0.0,
+    "waist_pitch_joint": 0.0,
     # arms
     "left_shoulder_pitch_joint": 0.0,
     "left_shoulder_roll_joint": 0.0,
+    "left_shoulder_yaw_joint": 0.0,
     "left_arm_pitch_joint": 0.0,
     "right_shoulder_pitch_joint": 0.0,
     "right_shoulder_roll_joint": 0.0,
-    "right_arm_pitch_joint": 0.0
+    "right_shoulder_yaw_joint": 0.0,
+    "right_arm_pitch_joint": 0.0,
 }
 
 STIFFNESS_REAL={
@@ -65,18 +74,18 @@ STIFFNESS_REAL={
     "right_knee_joint": 150.0,
     "right_ankle_pitch_joint": 30.0,
     "right_ankle_roll_joint": 30.0,
+    # waist
+    "waist_yaw_joint": 300.0,
+    "waist_pitch_joint": 300.0,
     # arms
-    "left_shoulder_pitch_joint": 300.0,
-    "left_shoulder_roll_joint": 300.0,
-    "left_arm_pitch_joint": 300.0,
-    "right_shoulder_pitch_joint": 300.0,
-    "right_shoulder_roll_joint": 300.0,
-    "right_arm_pitch_joint": 300.0,
-
-    "waist_yaw_joint":          90.0,
-    "waist_pitch_joint":        90.0,
-    "left_shoulder_yaw_joint":  90.0,
-    "right_shoulder_yaw_joint": 90.0,
+    "left_shoulder_pitch_joint": 100.0,
+    "left_shoulder_roll_joint": 100.0,
+    "left_shoulder_yaw_joint": 50.0,
+    "left_arm_pitch_joint": 50.0,
+    "right_shoulder_pitch_joint": 100.0,
+    "right_shoulder_roll_joint": 100.0,
+    "right_shoulder_yaw_joint": 50.0,
+    "right_arm_pitch_joint": 50.0,
 }
 
 DAMPING_REAL={
@@ -94,18 +103,18 @@ DAMPING_REAL={
     "right_knee_joint": 7.0,
     "right_ankle_pitch_joint": 3.0,
     "right_ankle_roll_joint": 3.0,
+    # waist
+    "waist_yaw_joint": 3.0,
+    "waist_pitch_joint": 3.0,
     # arms
-    "left_shoulder_pitch_joint": 3.0,
-    "left_shoulder_roll_joint": 3.0,
-    "left_arm_pitch_joint": 3.0,
-    "right_shoulder_pitch_joint": 3.0,
-    "right_shoulder_roll_joint": 3.0,
-    "right_arm_pitch_joint": 3.0,
-    
-    "waist_yaw_joint":          3.0,
-    "waist_pitch_joint":        3.0,
-    "left_shoulder_yaw_joint":  3.0,
-    "right_shoulder_yaw_joint": 3.0,
+    "left_shoulder_pitch_joint": 2.0,
+    "left_shoulder_roll_joint": 2.0,
+    "left_shoulder_yaw_joint": 2.0,
+    "left_arm_pitch_joint": 2.0,
+    "right_shoulder_pitch_joint": 2.0,
+    "right_shoulder_roll_joint": 2.0,
+    "right_shoulder_yaw_joint": 2.0,
+    "right_arm_pitch_joint": 2.0,
 }
 
 EFFORT_REAL={
@@ -123,27 +132,28 @@ EFFORT_REAL={
     "right_knee_joint": 150.0,
     "right_ankle_pitch_joint": 75.0,
     "right_ankle_roll_joint": 75.0,
+    # waist
+    "waist_yaw_joint": 90.0,
+    "waist_pitch_joint": 90.0,
     # arms
     "left_shoulder_pitch_joint": 36.0,
     "left_shoulder_roll_joint": 36.0,
+    "left_shoulder_yaw_joint": 36.0,
     "left_arm_pitch_joint": 36.0,
     "right_shoulder_pitch_joint": 36.0,
     "right_shoulder_roll_joint": 36.0,
+    "right_shoulder_yaw_joint": 36.0,
     "right_arm_pitch_joint": 36.0,
-    
-    "waist_yaw_joint":          90.0,
-    "waist_pitch_joint":        90.0,
-    "left_shoulder_yaw_joint":  30.0,
-    "right_shoulder_yaw_joint": 30.0,
 }
 
 ##
 # Configuration
 ##
 
+
 R2_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{ROBOTLIB_ASSETLIB_DIR}/third_party/r2_wholebody/usd/r2_wb.usd",
+        usd_path=f"{ROBOTLIB_ASSETLIB_DIR}/thrid_party/r2_wholebody/usd/r2_wb.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
