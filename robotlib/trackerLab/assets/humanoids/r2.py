@@ -153,7 +153,7 @@ EFFORT_REAL={
 
 R2_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{ROBOTLIB_ASSETLIB_DIR}/thrid_party/r2_wholebody/usd/r2_wb.usd",
+        usd_path=f"{ROBOTLIB_ASSETLIB_DIR}/third_party/r2_wholebody/usd/r2_wb.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
