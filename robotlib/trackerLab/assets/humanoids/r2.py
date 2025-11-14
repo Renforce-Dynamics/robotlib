@@ -168,31 +168,31 @@ EFFORT_REAL={
 
 R2_ACTION_SCALE={
     # left leg
-    "left_hip_pitch_joint": 2.879793266,
-    "left_hip_roll_joint": 2.4435,
-    "left_hip_yaw_joint": 2.7576,
-    "left_knee_joint": 2.42600766,
-    "left_ankle_pitch_joint": 0.69813,
-    "left_ankle_roll_joint": 0.2618,
+    "left_hip_pitch_joint": 0.3472,
+    "left_hip_roll_joint": 0.4092,
+    "left_hip_yaw_joint": 0.3626,
+    "left_knee_joint": 0.4122,
+    "left_ankle_pitch_joint": 1.4325,
+    "left_ankle_roll_joint": 3.8197,
     # right leg
-    "right_hip_pitch_joint": 2.879793266,
-    "right_hip_roll_joint": 2.4435,
-    "right_hip_yaw_joint": 2.7576,
-    "right_knee_joint": 2.42600766,
-    "right_ankle_pitch_joint": 0.69813,
-    "right_ankle_roll_joint": 0.2618,
+    "right_hip_pitch_joint": 0.3472,
+    "right_hip_roll_joint": 0.4092,
+    "right_hip_yaw_joint": 0.3626,
+    "right_knee_joint": 0.4122,
+    "right_ankle_pitch_joint": 1.4325,
+    "right_ankle_roll_joint": 3.8197,
     # waist
-    "waist_yaw_joint": 0.5236,
-    "waist_pitch_joint": 0.5236,
+    "waist_yaw_joint": 1.9099,
+    "waist_pitch_joint": 1.9099,
     # arms
-    "left_shoulder_pitch_joint": 3.0892,
-    "left_shoulder_roll_joint": 2.2427,
-    "left_shoulder_yaw_joint": 2.618,
-    "left_arm_pitch_joint": 2.0944,
-    "right_shoulder_pitch_joint": 3.0892,
-    "right_shoulder_roll_joint": 2.2427,
-    "right_shoulder_yaw_joint": 2.618,
-    "right_arm_pitch_joint": 2.0944,
+    "left_shoulder_pitch_joint": 0.3237,
+    "left_shoulder_roll_joint": 0.4459,
+    "left_shoulder_yaw_joint": 0.3820,
+    "left_arm_pitch_joint": 0.4775,
+    "right_shoulder_pitch_joint": 0.3237,
+    "right_shoulder_roll_joint": 0.4459,
+    "right_shoulder_yaw_joint": 0.3820,
+    "right_arm_pitch_joint": 0.4775,
 }
 
 R2_ARMATURE = \
