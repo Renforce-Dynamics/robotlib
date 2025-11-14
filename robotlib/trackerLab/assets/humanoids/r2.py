@@ -195,6 +195,36 @@ R2_ACTION_SCALE={
     "right_arm_pitch_joint": 2.0944,
 }
 
+R2_ARMATURE = \
+{
+    # left leg
+    "left_hip_pitch_joint": ARMATURE_100,
+    "left_hip_roll_joint": ARMATURE_100,
+    "left_hip_yaw_joint": ARMATURE_100,
+    "left_knee_joint": ARMATURE_150,
+    "left_ankle_pitch_joint": ARMATURE_30,
+    "left_ankle_roll_joint": ARMATURE_30,
+    # right leg
+    "right_hip_pitch_joint": ARMATURE_100,
+    "right_hip_roll_joint": ARMATURE_100,
+    "right_hip_yaw_joint": ARMATURE_100,
+    "right_knee_joint": ARMATURE_150,
+    "right_ankle_pitch_joint": ARMATURE_30,
+    "right_ankle_roll_joint": ARMATURE_30,
+    # waist
+    "waist_yaw_joint": ARMATURE_300,
+    "waist_pitch_joint": ARMATURE_300,
+    # arms
+    "left_shoulder_pitch_joint": ARMATURE_100,
+    "left_shoulder_roll_joint": ARMATURE_100,
+    "left_shoulder_yaw_joint": ARMATURE_50,
+    "left_arm_pitch_joint": ARMATURE_50,
+    "right_shoulder_pitch_joint": ARMATURE_100,
+    "right_shoulder_roll_joint": ARMATURE_100,
+    "right_shoulder_yaw_joint": ARMATURE_50,
+    "right_arm_pitch_joint": ARMATURE_50,
+}
+
 ##
 # Configuration
 ##
@@ -231,77 +261,9 @@ R2_CFG = ArticulationCfg(
             stiffness=STIFFNESS_REAL,
             damping=DAMPING_REAL,
             effort_limit=EFFORT_REAL,
-            # velocity_limit_sim={
-            #     # left leg
-            #     "left_hip_pitch_joint": 32.0,
-            #     "left_hip_roll_joint": 20.0,
-            #     "left_hip_yaw_joint": 32.0,
-            #     "left_knee_joint": 20.0,
-            #     "left_ankle_pitch_joint": 37.0,
-            #     "left_ankle_roll_joint": 37.0,
-            #     # right leg
-            #     "right_hip_pitch_joint": 32.0,
-            #     "right_hip_roll_joint": 20.0,
-            #     "right_hip_yaw_joint": 32.0,
-            #     "right_knee_joint": 20.0,
-            #     "right_ankle_pitch_joint": 37.0,
-            #     "right_ankle_roll_joint": 37.0,
-            #     # waist
-            #     "waist_yaw_joint": 32.0,
-            #     "waist_pitch_joint": 37.0,
-            #     # arms
-            #     "left_shoulder_pitch_joint": 25.0,
-            #     "left_shoulder_roll_joint": 25.0,
-            #     "left_shoulder_yaw_joint": 25.0,
-            #     "left_arm_pitch_joint": 25.0,
-            #     "right_shoulder_pitch_joint": 25.0,
-            #     "right_shoulder_roll_joint": 25.0,
-            #     "right_shoulder_yaw_joint": 25.0,
-            #     "right_arm_pitch_joint": 25.0,
-            # },
-            armature={
-                # left leg
-                "left_hip_pitch_joint": ARMATURE_100,
-                "left_hip_roll_joint": ARMATURE_100,
-                "left_hip_yaw_joint": ARMATURE_100,
-                "left_knee_joint": ARMATURE_150,
-                "left_ankle_pitch_joint": ARMATURE_30,
-                "left_ankle_roll_joint": ARMATURE_30,
-                # right leg
-                "right_hip_pitch_joint": ARMATURE_100,
-                "right_hip_roll_joint": ARMATURE_100,
-                "right_hip_yaw_joint": ARMATURE_100,
-                "right_knee_joint": ARMATURE_150,
-                "right_ankle_pitch_joint": ARMATURE_30,
-                "right_ankle_roll_joint": ARMATURE_30,
-                # waist
-                "waist_yaw_joint": ARMATURE_300,
-                "waist_pitch_joint": ARMATURE_300,
-                # arms
-                "left_shoulder_pitch_joint": ARMATURE_100,
-                "left_shoulder_roll_joint": ARMATURE_100,
-                "left_shoulder_yaw_joint": ARMATURE_50,
-                "left_arm_pitch_joint": ARMATURE_50,
-                "right_shoulder_pitch_joint": ARMATURE_100,
-                "right_shoulder_roll_joint": ARMATURE_100,
-                "right_shoulder_yaw_joint": ARMATURE_50,
-                "right_arm_pitch_joint": ARMATURE_50,
-            }
+            armature=R2_ARMATURE
         )
     }
 )
 
 """Configuration for the R2 Humanoid Robot."""
-
-# R2_ACTION_SCALE = {}
-# for a in R2_CFG.actuators.values():
-#     e = a.effort_limit
-#     s = a.stiffness
-#     names = a.joint_names_expr
-#     if not isinstance(e, dict):
-#         e = {n: e for n in names}
-#     if not isinstance(s, dict):
-#         s = {n: s for n in names}
-#     for n in names:
-#         if n in e and n in s and s[n]:
-#             R2_ACTION_SCALE[n] = 0.25 * e[n] / s[n]
