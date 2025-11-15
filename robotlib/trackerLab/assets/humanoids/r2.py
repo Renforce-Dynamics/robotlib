@@ -5,29 +5,49 @@ from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
 
 from robotlib import ROBOTLIB_USD_DIR, ROBOTLIB_ASSETLIB_DIR
 
+STIFFNESS_100 = 100.0
+STIFFNESS_150 = 150.0
+STIFFNESS_30 = 30.0
+STIFFNESS_300 = 300.0
+STIFFNESS_50 = 50.0
+
+NATURAL_FREQ = 10 * 2.0 * 3.1415926535  # 10Hz
+
+# ARMATURE_100 = STIFFNESS_100 / NATURAL_FREQ**2
+# ARMATURE_150 = STIFFNESS_150 / NATURAL_FREQ**2
+# ARMATURE_30 = STIFFNESS_30 / NATURAL_FREQ**2
+# ARMATURE_300 = STIFFNESS_300 / NATURAL_FREQ**2
+# ARMATURE_50 = STIFFNESS_50 / NATURAL_FREQ**2
+ARMATURE_100 = 0.01
+ARMATURE_150 = 0.01
+ARMATURE_30 = 0.01
+ARMATURE_300 = 0.01 
+ARMATURE_50 = 0.01
+
+
 JOINT_NAMES = [
-    "left_hip_pitch_joint",
-    "left_hip_roll_joint",
-    "left_hip_yaw_joint",
-    "left_knee_joint",
-    "left_ankle_pitch_joint",
-    "left_ankle_roll_joint",
-    "right_hip_pitch_joint",
-    "right_hip_roll_joint",
-    "right_hip_yaw_joint",
-    "right_knee_joint",
-    "right_ankle_pitch_joint",
-    "right_ankle_roll_joint",
-    "waist_yaw_joint",
-    "waist_pitch_joint",
-    "left_shoulder_pitch_joint",
-    "left_shoulder_roll_joint",
-    "left_shoulder_yaw_joint",
-    "left_arm_pitch_joint",
-    "right_shoulder_pitch_joint",
-    "right_shoulder_roll_joint",
-    "right_shoulder_yaw_joint",
-    "right_arm_pitch_joint", 
+    "left_hip_pitch_joint", #<limit lower="-2.530727415" upper="2.879793266" effort="130" velocity="14.658" />
+    "left_hip_roll_joint", #<limit lower="-0.2618" upper="2.4435" effort="130" velocity="14.658" />
+    "left_hip_yaw_joint", #<limit lower="-2.7576" upper="2.7576" effort="90" velocity="16.438" />
+    "left_knee_joint", #<limit lower="-0.401425728" upper="2.42600766" effort="150" velocity="14.658" />
+    "left_ankle_pitch_joint", #<limit lower="-0.69813" upper="0.5236" effort="75" velocity="12.25" />
+    "left_ankle_roll_joint", #<limit lower="-0.2618" upper="0.2618" effort="75" velocity="12.25" />
+    "right_hip_pitch_joint", #  <limit lower="-2.530727415" upper="2.879793266" effort="130" velocity="14.658" />
+    "right_hip_roll_joint", # <limit lower="-2.4435" upper="0.2618" effort="130" velocity="14.658" />
+    "right_hip_yaw_joint", #  <limit lower="-2.7576" upper="2.7576" effort="90" velocity="16.438" />
+    "right_knee_joint", #  <limit lower="-0.401425728" upper="2.42600766" effort="150" velocity="14.658" />
+    "right_ankle_pitch_joint", #  <limit lower="-0.69813" upper="0.5236" effort="75" velocity="12.25" />
+    "right_ankle_roll_joint", #  <limit lower="-0.2618" upper="0.2618" effort="75" velocity="12.25" />
+    "waist_yaw_joint", #  <limit lower="-0.5236" upper="0.5236" effort="90" velocity="16.438" />
+    "waist_pitch_joint", #  <limit lower="-0.5236" upper="0.5236" effort="90" velocity="16.438" />
+    "left_shoulder_pitch_joint", #  <limit lower="-3.0892" upper="2.6704" effort="36" velocity="17.904" />
+    "left_shoulder_roll_joint", #   <limit lower="-0.5236" upper="2.2427" effort="36" velocity="17.904" />
+    "left_shoulder_yaw_joint", #  <limit lower="-2.618" upper="2.618" effort="36" velocity="17.904" />
+    "left_arm_pitch_joint", # <limit lower="-1.0472" upper="2.0944" effort="36" velocity="17.904" />
+    "right_shoulder_pitch_joint", # <limit lower="-3.0892" upper="2.6704" effort="36" velocity="17.904" />
+    "right_shoulder_roll_joint", #  <limit lower="-2.2427" upper="0.5236" effort="36" velocity="17.904" />
+    "right_shoulder_yaw_joint", #  <limit lower="-2.618" upper="2.618" effort="36" velocity="17.904" />
+    "right_arm_pitch_joint", #  <limit lower="-1.0472" upper="2.0944" effort="36" velocity="17.904" />
 ]
 
 INIT_POS={
@@ -146,14 +166,72 @@ EFFORT_REAL={
     "right_arm_pitch_joint": 36.0,
 }
 
+R2_ACTION_SCALE={
+    # left leg
+    "left_hip_pitch_joint": 0.3472,
+    "left_hip_roll_joint": 0.4092,
+    "left_hip_yaw_joint": 0.3626,
+    "left_knee_joint": 0.4122,
+    "left_ankle_pitch_joint": 1.4325,
+    "left_ankle_roll_joint": 3.8197,
+    # right leg
+    "right_hip_pitch_joint": 0.3472,
+    "right_hip_roll_joint": 0.4092,
+    "right_hip_yaw_joint": 0.3626,
+    "right_knee_joint": 0.4122,
+    "right_ankle_pitch_joint": 1.4325,
+    "right_ankle_roll_joint": 3.8197,
+    # waist
+    "waist_yaw_joint": 1.9099,
+    "waist_pitch_joint": 1.9099,
+    # arms
+    "left_shoulder_pitch_joint": 0.3237,
+    "left_shoulder_roll_joint": 0.4459,
+    "left_shoulder_yaw_joint": 0.3820,
+    "left_arm_pitch_joint": 0.4775,
+    "right_shoulder_pitch_joint": 0.3237,
+    "right_shoulder_roll_joint": 0.4459,
+    "right_shoulder_yaw_joint": 0.3820,
+    "right_arm_pitch_joint": 0.4775,
+}
+
+R2_ARMATURE = \
+{
+    # left leg
+    "left_hip_pitch_joint": ARMATURE_100,
+    "left_hip_roll_joint": ARMATURE_100,
+    "left_hip_yaw_joint": ARMATURE_100,
+    "left_knee_joint": ARMATURE_150,
+    "left_ankle_pitch_joint": ARMATURE_30,
+    "left_ankle_roll_joint": ARMATURE_30,
+    # right leg
+    "right_hip_pitch_joint": ARMATURE_100,
+    "right_hip_roll_joint": ARMATURE_100,
+    "right_hip_yaw_joint": ARMATURE_100,
+    "right_knee_joint": ARMATURE_150,
+    "right_ankle_pitch_joint": ARMATURE_30,
+    "right_ankle_roll_joint": ARMATURE_30,
+    # waist
+    "waist_yaw_joint": ARMATURE_300,
+    "waist_pitch_joint": ARMATURE_300,
+    # arms
+    "left_shoulder_pitch_joint": ARMATURE_100,
+    "left_shoulder_roll_joint": ARMATURE_100,
+    "left_shoulder_yaw_joint": ARMATURE_50,
+    "left_arm_pitch_joint": ARMATURE_50,
+    "right_shoulder_pitch_joint": ARMATURE_100,
+    "right_shoulder_roll_joint": ARMATURE_100,
+    "right_shoulder_yaw_joint": ARMATURE_50,
+    "right_arm_pitch_joint": ARMATURE_50,
+}
+
 ##
 # Configuration
 ##
 
-
 R2_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{ROBOTLIB_ASSETLIB_DIR}/third_party/r2_wholebody/usd/r2_wb.usd",
+        usd_path=f"{ROBOTLIB_ASSETLIB_DIR}/thrid_party/r2_wholebody/usd/r2_wb.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -179,25 +257,13 @@ R2_CFG = ArticulationCfg(
     soft_joint_pos_limit_factor=1.0,
     actuators={
         "actuators": ImplicitActuatorCfg(
-            joint_names_expr=[".*"],
+            joint_names_expr=list(EFFORT_REAL.keys()),
             stiffness=STIFFNESS_REAL,
             damping=DAMPING_REAL,
             effort_limit=EFFORT_REAL,
-        ),
-    },
+            armature=R2_ARMATURE
+        )
+    }
 )
 
 """Configuration for the R2 Humanoid Robot."""
-
-R2_ACTION_SCALE = {}
-for a in R2_CFG.actuators.values():
-    e = a.effort_limit_sim
-    s = a.stiffness
-    names = a.joint_names_expr
-    if not isinstance(e, dict):
-        e = {n: e for n in names}
-    if not isinstance(s, dict):
-        s = {n: s for n in names}
-    for n in names:
-        if n in e and n in s and s[n]:
-            R2_ACTION_SCALE[n] = 0.25 * e[n] / s[n]

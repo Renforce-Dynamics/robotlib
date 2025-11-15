@@ -12,3 +12,6 @@ def load_robot_cfg(robot_type: str)->Tuple[dict, dict]:
         return R2_CFG, R2B_MOTION_ALIGN_CFG_GMR
     else:
         raise ValueError(f"Unsupported robot type: {robot_type}")
+    
+def get_asset_config(robot_dir):
+    return
