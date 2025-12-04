@@ -2,7 +2,7 @@ import isaaclab.sim as sim_utils
 from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 
-from robotlib import ROBOTLIB_ASSETS_DIR as ASSET_DIR
+from robotlib import ROBOTLIB_ASSETLIB_DIR as ASSET_DIR
 
 ARMATURE_5020 = 0.003609725
 ARMATURE_7520_14 = 0.010177520
@@ -22,11 +22,12 @@ DAMPING_7520_14 = 2.0 * DAMPING_RATIO * ARMATURE_7520_14 * NATURAL_FREQ
 DAMPING_7520_22 = 2.0 * DAMPING_RATIO * ARMATURE_7520_22 * NATURAL_FREQ
 DAMPING_4010 = 2.0 * DAMPING_RATIO * ARMATURE_4010 * NATURAL_FREQ
 
-G1_CYLINDER_CFG = ArticulationCfg(
+
+G1_OPENSOURCE_CFG = ArticulationCfg(
     spawn=sim_utils.UrdfFileCfg(
         fix_base=False,
         replace_cylinders_with_capsules=True,
-        asset_path=f"{ASSET_DIR}/unitree_description/urdf/g1/main.urdf",
+        asset_path=f"{ASSET_DIR}/unitree/unitree_g1/urdf/g1_29dof.urdf",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -181,8 +182,11 @@ G1_CYLINDER_CFG = ArticulationCfg(
     },
 )
 
+G1_CYLINDER_CFG = G1_OPENSOURCE_CFG
+
+
 G1_ACTION_SCALE = {}
-for a in G1_CYLINDER_CFG.actuators.values():
+for a in G1_OPENSOURCE_CFG.actuators.values():
     e = a.effort_limit_sim
     s = a.stiffness
     names = a.joint_names_expr

@@ -16,7 +16,7 @@ from isaaclab.assets.articulation import ArticulationCfg
 from isaaclab.utils import configclass
 
 from robotlib.unitree_rl_lab import unitree_actuators
-
+from robotlib import ROBOTLIB_ASSETLIB_DIR
 
 @configclass
 class UnitreeArticulationCfg(ArticulationCfg):
