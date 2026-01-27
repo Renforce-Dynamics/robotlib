@@ -184,6 +184,28 @@ G1_OPENSOURCE_CFG = ArticulationCfg(
 
 G1_CYLINDER_CFG = G1_OPENSOURCE_CFG
 
+G1_CYLINDER_CFG = G1_OPENSOURCE_CFG.replace(
+    spawn=sim_utils.UsdFileCfg(
+        usd_path=f"{ASSET_DIR}/unitree/unitree_g1/beyond/g1_29dof.usd",
+        activate_contact_sensors=True,
+        rigid_props=sim_utils.RigidBodyPropertiesCfg(
+            disable_gravity=False,
+            retain_accelerations=False,
+            linear_damping=0.0,
+            angular_damping=0.0,
+            max_linear_velocity=1000.0,
+            max_angular_velocity=1000.0,
+            max_depenetration_velocity=1.0,
+        ),
+        articulation_props=sim_utils.ArticulationRootPropertiesCfg(
+            fix_root_link=False,
+            enabled_self_collisions=False, 
+            solver_position_iteration_count=4, 
+            solver_velocity_iteration_count=4
+        ),
+    ),
+)
+
 
 G1_ACTION_SCALE = {}
 for a in G1_OPENSOURCE_CFG.actuators.values():

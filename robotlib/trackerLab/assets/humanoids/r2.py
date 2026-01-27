@@ -166,37 +166,7 @@ EFFORT_REAL={
     "right_arm_pitch_joint": 36.0,
 }
 
-R2_ACTION_SCALE={
-    # left leg
-    "left_hip_pitch_joint": 2.879793266,
-    "left_hip_roll_joint": 2.4435,
-    "left_hip_yaw_joint": 2.7576,
-    "left_knee_joint": 2.42600766,
-    "left_ankle_pitch_joint": 0.69813,
-    "left_ankle_roll_joint": 0.2618,
-    # right leg
-    "right_hip_pitch_joint": 2.879793266,
-    "right_hip_roll_joint": 2.4435,
-    "right_hip_yaw_joint": 2.7576,
-    "right_knee_joint": 2.42600766,
-    "right_ankle_pitch_joint": 0.69813,
-    "right_ankle_roll_joint": 0.2618,
-    # waist
-    "waist_yaw_joint": 0.5236,
-    "waist_pitch_joint": 0.5236,
-    # arms
-    "left_shoulder_pitch_joint": 3.0892,
-    "left_shoulder_roll_joint": 2.2427,
-    "left_shoulder_yaw_joint": 2.618,
-    "left_arm_pitch_joint": 2.0944,
-    "right_shoulder_pitch_joint": 3.0892,
-    "right_shoulder_roll_joint": 2.2427,
-    "right_shoulder_yaw_joint": 2.618,
-    "right_arm_pitch_joint": 2.0944,
-}
-
-R2_ARMATURE = \
-{
+ARMATURE={
     # left leg
     "left_hip_pitch_joint": ARMATURE_100,
     "left_hip_roll_joint": ARMATURE_100,
@@ -223,6 +193,64 @@ R2_ARMATURE = \
     "right_shoulder_roll_joint": ARMATURE_100,
     "right_shoulder_yaw_joint": ARMATURE_50,
     "right_arm_pitch_joint": ARMATURE_50,
+}
+
+# velocity_limit_sim={
+#     # left leg
+#     "left_hip_pitch_joint": 32.0,
+#     "left_hip_roll_joint": 20.0,
+#     "left_hip_yaw_joint": 32.0,
+#     "left_knee_joint": 20.0,
+#     "left_ankle_pitch_joint": 37.0,
+#     "left_ankle_roll_joint": 37.0,
+#     # right leg
+#     "right_hip_pitch_joint": 32.0,
+#     "right_hip_roll_joint": 20.0,
+#     "right_hip_yaw_joint": 32.0,
+#     "right_knee_joint": 20.0,
+#     "right_ankle_pitch_joint": 37.0,
+#     "right_ankle_roll_joint": 37.0,
+#     # waist
+#     "waist_yaw_joint": 32.0,
+#     "waist_pitch_joint": 37.0,
+#     # arms
+#     "left_shoulder_pitch_joint": 25.0,
+#     "left_shoulder_roll_joint": 25.0,
+#     "left_shoulder_yaw_joint": 25.0,
+#     "left_arm_pitch_joint": 25.0,
+#     "right_shoulder_pitch_joint": 25.0,
+#     "right_shoulder_roll_joint": 25.0,
+#     "right_shoulder_yaw_joint": 25.0,
+#     "right_arm_pitch_joint": 25.0,
+# }
+
+R2_ACTION_SCALE={
+    # left leg
+    "left_hip_pitch_joint": 0.25,
+    "left_hip_roll_joint": 0.25,
+    "left_hip_yaw_joint": 0.25,
+    "left_knee_joint": 0.25,
+    "left_ankle_pitch_joint": 0.25,
+    "left_ankle_roll_joint": 0.25,
+    # right leg
+    "right_hip_pitch_joint": 0.25,
+    "right_hip_roll_joint": 0.25,
+    "right_hip_yaw_joint": 0.25,
+    "right_knee_joint": 0.25,
+    "right_ankle_pitch_joint": 0.25,
+    "right_ankle_roll_joint": 0.25,
+    # waist
+    "waist_yaw_joint": 0.25,
+    "waist_pitch_joint": 0.25,
+    # arms
+    "left_shoulder_pitch_joint": 0.25,
+    "left_shoulder_roll_joint": 0.25,
+    "left_shoulder_yaw_joint": 0.25,
+    "left_arm_pitch_joint": 0.25,
+    "right_shoulder_pitch_joint": 0.25,
+    "right_shoulder_roll_joint": 0.25,
+    "right_shoulder_yaw_joint": 0.25,
+    "right_arm_pitch_joint": 0.25,
 }
 
 ##
@@ -261,9 +289,22 @@ R2_CFG = ArticulationCfg(
             stiffness=STIFFNESS_REAL,
             damping=DAMPING_REAL,
             effort_limit=EFFORT_REAL,
-            armature=R2_ARMATURE
+            armature=ARMATURE
         )
     }
 )
 
 """Configuration for the R2 Humanoid Robot."""
+
+# R2_ACTION_SCALE = {}
+# for a in R2_CFG.actuators.values():
+#     e = a.effort_limit
+#     s = a.stiffness
+#     names = a.joint_names_expr
+#     if not isinstance(e, dict):
+#         e = {n: e for n in names}
+#     if not isinstance(s, dict):
+#         s = {n: s for n in names}
+#     for n in names:
+#         if n in e and n in s and s[n]:
+#             R2_ACTION_SCALE[n] = 0.25 * e[n] / s[n]
