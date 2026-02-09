@@ -13,7 +13,6 @@ body_names = [
     'Rhand', 'neck', 'head'
 ]
 
-
 MOSC9_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
         usd_path=f"{ROBOTLIB_ASSETLIB_DIR}/third_party/MOSC/usd/MOSC_0516.usd",

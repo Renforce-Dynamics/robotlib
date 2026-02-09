@@ -18,7 +18,7 @@ import isaaclab.sim as sim_utils
 from isaaclab.assets.articulation import ArticulationCfg
 from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR
 
-from soccerTask.train.locomotion.recovery.mdp.actuators import DelayedDCMotorCfg
+from .actuators import DelayedDCMotorCfg
 
 T1_USD_PATH = f"{ISAAC_NUCLEUS_DIR}/Robots/BoosterRobotics/BoosterT1/T1_locomotion.usd"
 
